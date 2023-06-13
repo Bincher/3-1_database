@@ -1,0 +1,27 @@
+{
+  "name": "3-1_database",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/Bincher/3-1_database.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bincher/3-1_database/issues"
+  },
+  "homepage": "https://github.com/Bincher/3-1_database#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  }
+}
