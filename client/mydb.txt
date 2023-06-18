@@ -1,0 +1,94 @@
+CREATE DATABASE IF NOT EXISTS mydb;
+
+use mydb;
+
+CREATE TABLE video (
+  v_id INT PRIMARY KEY AUTO_INCREMENT,
+  v_title VARCHAR(255) NOT NULL,
+  v_type VARCHAR(255) NOT NULL,
+  v_genre VARCHAR(255) NOT NULL,
+  v_country VARCHAR(255) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+
+CREATE TABLE ott (
+  o_id INT PRIMARY KEY AUTO_INCREMENT,
+  o_name VARCHAR(255) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+ 
+CREATE TABLE evaluation (
+  e_id INT PRIMARY KEY AUTO_INCREMENT,
+  video_v_id INT,
+  e_nickname VARCHAR(255) NOT NULL,
+  e_content TEXT NOT NULL,
+  FOREIGN KEY (video_v_id) REFERENCES video (v_id) ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+
+CREATE TABLE ott_has_video (
+  ott_o_id INT,
+  video_v_id INT,
+  FOREIGN KEY (ott_o_id) REFERENCES ott (o_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  FOREIGN KEY (video_v_id) REFERENCES video (v_id) ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+
+INSERT INTO ott VALUES (1, "netflix");
+INSERT INTO ott VALUES (2, "tving");
+INSERT INTO ott VALUES (3, "wavve");
+INSERT INTO ott VALUES (4, "coupang_play");
+INSERT INTO ott VALUES (5, "disney_plus");
+
+INSERT INTO video VALUES (1, "아바타: 물의 길", "movie", "SF", "EN");
+insert into ott_has_video values(5,1);
+INSERT INTO video VALUES (2, "늑대사냥", "movie", "Action", "KR");
+insert into ott_has_video values(1,2);
+INSERT INTO video VALUES (3, "스파이더맨: 노 웨이 홈", "movie", "Action", "EN");
+insert into ott_has_video values(1,3);
+INSERT INTO video VALUES (4, "블랙 팬서: 와칸다 포에버", "movie", "Action", "EN");
+insert into ott_has_video values(5,4);
+INSERT INTO video VALUES (5, "헌트", "movie", "Action", "KR");
+insert into ott_has_video values(1,5);
+insert into ott_has_video values(3,5);
+INSERT INTO video VALUES (6, "메이의 새빨간 비밀", "animation", "Family", "EN");
+insert into ott_has_video values(5,6);
+INSERT INTO video VALUES (7, "미니언즈 2", "animation", "Comedy", "EN");
+insert into ott_has_video values(1,7);
+INSERT INTO video VALUES (8, "진짜가 나타났다", "drama", "Romance", "KR");
+insert into ott_has_video values(1,8);
+insert into ott_has_video values(3,8);
+INSERT INTO video VALUES (9, "나 혼자 산다", "tvShow", "Comedy", "KR");
+insert into ott_has_video values(3,9);
+INSERT INTO video VALUES (10, "조커", "movie", "Thriller", "EN");
+insert into ott_has_video values(4,10);
+insert into ott_has_video values(3,10);
+INSERT INTO video VALUES (11, "슬램덩크", "animation", "Sport", "JP");
+insert into ott_has_video values(1,11);
+insert into ott_has_video values(3,11);
+INSERT INTO video VALUES (12, "유 퀴즈 온 더 블럭", "tvShow", "Comedy", "KR");
+insert into ott_has_video values(2,12);
+INSERT INTO video VALUES (13, "구미호뎐", "drama", "Romance", "KR");
+insert into ott_has_video values(1,13);
+insert into ott_has_video values(2,13);
+INSERT INTO video VALUES (14, "가디언즈 오브 갤럭시", "movie", "Action", "EN");
+insert into ott_has_video values(3,14);
+insert into ott_has_video values(5,14);
+INSERT INTO video VALUES (15, "타이타닉", "movie", "Romance", "EN");
+insert into ott_has_video values(2,15);
+insert into ott_has_video values(3,15);
+insert into ott_has_video values(5,15);
+INSERT INTO video VALUES (16, "컨저링 2", "movie", "Horror", "EN");
+insert into ott_has_video values(1,16);
+insert into ott_has_video values(3,16);
+insert into ott_has_video values(4,16);
+INSERT INTO video VALUES (17, "개는 훌륭하다", "tvShow", "Comedy", "KR");
+insert into ott_has_video values(3,17);
+insert into ott_has_video values(4,17);
+INSERT INTO video VALUES (18, "너의 이름은", "animation", "Romance", "JP");
+insert into ott_has_video values(1,18);
+insert into ott_has_video values(3,18);
+insert into ott_has_video values(4,18);
+INSERT INTO video VALUES (19, "버닝", "movie", "Thriller", "KR");
+insert into ott_has_video values(1,19);
+insert into ott_has_video values(3,19);
+insert into ott_has_video values(4,19);
+INSERT INTO video VALUES (20, "펜트하우스", "drama", "Thriller", "KR");
+insert into ott_has_video values(3,20);
+insert into ott_has_video values(4,20);
